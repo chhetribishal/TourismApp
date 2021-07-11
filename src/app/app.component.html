@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+<div style="text-align: center;" *ngIf ="router.url!='/admin'">
   
    <app-header></app-header>
    <app-banner *ngIf="router.url=='/'"></app-banner>
@@ -6,3 +6,7 @@
    <router-outlet></router-outlet>
    <app-footer style="padding: auto;"></app-footer>
 </div>
+
+<div class="col-lg-3"  *ngIf = "router.url=='/admin' ">
+   <app-admin></app-admin>
+   </div>

@@ -33,24 +33,22 @@ export class LoginComponent implements OnInit {
 
     this.empservice.login(employee).subscribe((user)=>{
       console.log(user);
-      
       this.succ = user;
       this.IsOk=true;
-    })
       if(this.IsOk){
         console.log(this.succ);
         console.log("testing");
         // sessionStorage.setItem("user",JSON.stringify(this.succ));
         this.router.navigate(['admin']);
-      }else{
-        console.log("hey");
-        this.message="Your password is not matching";
-        this.error=true;
-        this.loginForm.reset();
-
       }
-
+    })
+    if(!this.IsOk){
+      console.log("hey");
+      this.message="Your password is not matching";
+      this.error=true;
+      this.loginForm.reset();
+    }
   }
-  
+      
 
 }
